@@ -1,14 +1,14 @@
-from visual import *
-from visual.graph import *
+from visual import *    #creating visual actions
+from visual.graph import *   # to creat graphs
 
 scene = display (title = 'Planets Orbiting the Sun', width = 800, height = 800, range = vec(25000, 25000, 25000), center = vec(1000, 0, 0))
-scene.autoscale = True 
+scene.autoscale = True   
 
 sun = sphere (pos=vec(0,0,0), radius = 100, texture = textures.stucco, color = color.yellow, mass = 10)
 
-mercury = sphere (pos = vec(200,0,0), radius = 50, texture = textures.wood, color = color.red)
-mercury.trail = curve(color = mercury.color)
-mercury.velocity = vector(0,0,295)
+mercury = sphere (pos = vec(200,0,0), radius = 50, texture = textures.wood, color = color.red)  # creating planets
+mercury.trail = curve(color = mercury.color) # creating a trail to follow mercucy's motion
+mercury.velocity = vector(0,0,295)  # defines the initial velocity of mercury 
 
 venus = sphere (pos = vec(373.664,0,0), radius = 50, texture = textures.wood, color = color.orange)
 venus.trail = curve(color = venus.color)
@@ -20,7 +20,7 @@ earth.velocity = vector(0,0,195)
 
 moon = sphere (pos=vec(516.664+5.0016, 0,0), radius = 10, color=color.white)
 moon.trail = curve (color = moon.color)
-moon.velocitylocal = vector(0,0,195+1)
+moon.velocitylocal = vector(0,0,195+1)   # defines the velocity vector of the moon in relation to the earth
 
 mars = sphere(pos= vec(787.222,0,0), radius = 50, texture= textures.wood, color = color.green)
 mars.trail = curve(color=mars.color)
@@ -85,13 +85,13 @@ tlist = []
 vlist = []
 graphGPE = gdisplay (x=800, y=500, xtitle = "Position", ytitle ="Gravitational Potential Energy", width = 600, height = 400, title = "GPE vs. Position of Earth to Sun")
 earthGPE = gcurve(gdisplay = graphGPE, color = color.green)
-
+그래프1. 시간에 따른 지구의 속도
 graphSpeedRatios = gdisplay (x=600, y=500, xtitle = "Time", ytitle="Speed Ratio", width = 600, height = 400, title = "Planet Speed Ratios to Earth vs. Time")
 mercuryRatio = gcurve(gdisplay = graphSpeedRatios, color = color.red)
 mercuryRealRatio = gdots(gdisplay = graphSpeedRatios, color = color.red)
 
-venusRatio = gcurve(gdisplay = graphSpeedRatios, color = color.orange)
-venusRealRatio = gdots(gdisplay = graphSpeedRatios, color = color.orange)
+venusRatio = gcurve(gdisplay = graphSpeedRatios, color = color.orange)     #그래프2. 태양에 대한 지구의 위치에 따른 지구의 중력포텐셜 에너지를 나타내는 그래프설정
+venusRealRatio = gdots(gdisplay = graphSpeedRatios, color = color.orange)   # 그래프3. 시간에 따른 지구에 대한 행성들의 상대속도
 
 earthRatio = gcurve(gdisplay = graphSpeedRatios, color = color.yellow)
 earthRealRatio = gdots(gdisplay = graphSpeedRatios, color = color.yellow)
