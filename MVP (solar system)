@@ -4,13 +4,14 @@ scene = display(width = 1000, height = 1000)
 Sun = sphere(pos = vec(0,0,0), radius = 100, color = color.orange)
 Earth = sphere(pos = vec(100,0,0), radius = 10, texture = textures.earth, make_trail = True)
 
-Earth.v = vector(0,-8.5,0)
+Earth.v = vector(0,-8.5,0) # 태양과 지구의 모양, 위치를 각각 설정
 
 for i in range (3000) :
     rate(50)
     dist = (Earth.pos.x**2 + Earth.pos.y**2 + Earth.pos.x**2)**0.5
     radialVector = (Sun.pos - Earth.pos)/dist
-    Fgrav = 10000 * radialVector/dist**2
+    Fgrav = 10000 * radialVector/dist**2    # 태양과 지구 사이의 만유인력 설정
+    
     Earth.v += Fgrav
     Earth.pos += Earth.v
     if dist <= Sun.radius : break
